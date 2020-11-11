@@ -1,19 +1,14 @@
-﻿using Microsoft.Extensions.Configuration;
-using OAthLib.Models.FB;
+﻿using OAthLib.Models.FB;
 using OAthLib.Models.Google;
 using OAthLib.Models.Line;
 using OAthLib.Models.LinkedIn;
 using OAthLib.Models.MS;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
+using Microsoft.Extensions.Configuration;
 namespace OAthLib.Services.Helpers
 {
     public class ConfigService
     {
-        private IConfiguration _config { get; }
+        public  IConfiguration _config { get; }
         public ConfigService(IConfiguration config)
         {
             _config = config;
@@ -23,6 +18,7 @@ namespace OAthLib.Services.Helpers
         public LineConfig GetLineConfig()
         {
             var appConfig = new LineConfig();
+            
             _config.GetSection("Line").Bind(appConfig);
             return appConfig;
 

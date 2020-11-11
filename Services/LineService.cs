@@ -60,7 +60,7 @@ namespace OAthLib.Services
             {
                 var bb = req.IsSuccessStatusCode;
                 var data = await req.Content.ReadAsStringAsync();
-                var nData = Newtonsoft.Json.JsonConvert.DeserializeObject<LineAccessToken>(data);
+                var nData = JsonSerializer.Deserialize<LineAccessToken>(data);
                 return nData;
             }
             catch (System.Exception e)
